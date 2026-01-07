@@ -1,348 +1,377 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Advocate Application - Appwrite</title>
-    <style>
+export default function AppwriteAdvocatePage() {
+  return (
+    <>
+      <style jsx global>{`
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0f0d1e 0%, #1a1533 50%, #0f0d1e 100%);
-            color: #e4e4e7;
-            line-height: 1.6;
-            overflow-x: hidden;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          background: linear-gradient(135deg, #0f0d1e 0%, #1a1533 50%, #0f0d1e 100%);
+          color: #e4e4e7;
+          line-height: 1.6;
+          overflow-x: hidden;
+          min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 24px;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 60px 24px;
         }
 
         header {
-            text-align: center;
-            margin-bottom: 80px;
-            position: relative;
+          text-align: center;
+          margin-bottom: 80px;
+          position: relative;
         }
 
         .logo-section {
-            margin-bottom: 40px;
+          margin-bottom: 40px;
         }
 
         .appwrite-logo {
-            font-size: 48px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #f02e65 0%, #fd366e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
+          font-size: 48px;
+          font-weight: 800;
+          background: linear-gradient(135deg, #f02e65 0%, #fd366e 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          letter-spacing: -1px;
         }
 
         h1 {
-            font-size: 56px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
+          font-size: 56px;
+          font-weight: 800;
+          margin-bottom: 20px;
+          background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          line-height: 1.2;
         }
 
         .subtitle {
-            font-size: 24px;
-            color: #a1a1aa;
-            font-weight: 300;
+          font-size: 24px;
+          color: #a1a1aa;
+          font-weight: 300;
         }
 
         .hero-card {
-            background: linear-gradient(135deg, rgba(240, 46, 101, 0.1) 0%, rgba(253, 54, 110, 0.05) 100%);
-            border: 1px solid rgba(240, 46, 101, 0.2);
-            border-radius: 24px;
-            padding: 48px;
-            margin-bottom: 60px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 60px rgba(240, 46, 101, 0.15);
+          background: linear-gradient(135deg, rgba(240, 46, 101, 0.1) 0%, rgba(253, 54, 110, 0.05) 100%);
+          border: 1px solid rgba(240, 46, 101, 0.2);
+          border-radius: 24px;
+          padding: 48px;
+          margin-bottom: 60px;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 20px 60px rgba(240, 46, 101, 0.15);
         }
 
         .hero-card h2 {
-            font-size: 32px;
-            color: #f02e65;
-            margin-bottom: 24px;
-            font-weight: 700;
+          font-size: 32px;
+          color: #f02e65;
+          margin-bottom: 24px;
+          font-weight: 700;
         }
 
         .hero-card p {
-            font-size: 18px;
-            color: #d4d4d8;
-            line-height: 1.8;
+          font-size: 18px;
+          color: #d4d4d8;
+          line-height: 1.8;
         }
 
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-bottom: 60px;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 32px;
+          margin-bottom: 60px;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 16px;
+          padding: 32px;
+          transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(240, 46, 101, 0.5);
-            box-shadow: 0 12px 40px rgba(240, 46, 101, 0.2);
+          transform: translateY(-4px);
+          border-color: rgba(240, 46, 101, 0.5);
+          box-shadow: 0 12px 40px rgba(240, 46, 101, 0.2);
         }
 
         .card-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #f02e65 0%, #fd366e 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 20px;
+          width: 56px;
+          height: 56px;
+          background: linear-gradient(135deg, #f02e65 0%, #fd366e 100%);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 28px;
+          margin-bottom: 20px;
         }
 
         .card h3 {
-            font-size: 24px;
-            margin-bottom: 16px;
-            color: #ffffff;
-            font-weight: 700;
+          font-size: 24px;
+          margin-bottom: 16px;
+          color: #ffffff;
+          font-weight: 700;
         }
 
         .card p {
-            color: #a1a1aa;
-            font-size: 16px;
-            line-height: 1.6;
+          color: #a1a1aa;
+          font-size: 16px;
+          line-height: 1.6;
         }
 
         .skills-section {
-            margin-bottom: 60px;
+          margin-bottom: 60px;
         }
 
         .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 32px;
-            text-align: center;
-            color: #ffffff;
+          font-size: 36px;
+          font-weight: 700;
+          margin-bottom: 32px;
+          text-align: center;
+          color: #ffffff;
         }
 
         .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+          justify-content: center;
         }
 
         .skill-tag {
-            background: rgba(240, 46, 101, 0.1);
-            border: 1px solid rgba(240, 46, 101, 0.3);
-            padding: 12px 24px;
-            border-radius: 9999px;
-            font-size: 16px;
-            color: #fda4af;
-            font-weight: 500;
+          background: rgba(240, 46, 101, 0.1);
+          border: 1px solid rgba(240, 46, 101, 0.3);
+          padding: 12px 24px;
+          border-radius: 9999px;
+          font-size: 16px;
+          color: #fda4af;
+          font-weight: 500;
         }
 
         .cta-section {
-            text-align: center;
-            padding: 60px 32px;
-            background: linear-gradient(135deg, rgba(240, 46, 101, 0.15) 0%, rgba(253, 54, 110, 0.05) 100%);
-            border: 1px solid rgba(240, 46, 101, 0.3);
-            border-radius: 24px;
-            margin-top: 60px;
+          text-align: center;
+          padding: 60px 32px;
+          background: linear-gradient(135deg, rgba(240, 46, 101, 0.15) 0%, rgba(253, 54, 110, 0.05) 100%);
+          border: 1px solid rgba(240, 46, 101, 0.3);
+          border-radius: 24px;
+          margin-top: 60px;
         }
 
         .cta-section h2 {
-            font-size: 40px;
-            margin-bottom: 24px;
-            color: #ffffff;
-            font-weight: 700;
+          font-size: 40px;
+          margin-bottom: 24px;
+          color: #ffffff;
+          font-weight: 700;
         }
 
         .cta-section p {
-            font-size: 20px;
-            color: #d4d4d8;
-            max-width: 700px;
-            margin: 0 auto 32px;
+          font-size: 20px;
+          color: #d4d4d8;
+          max-width: 700px;
+          margin: 0 auto 32px;
         }
 
         .contact-info {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 32px;
+          display: flex;
+          gap: 32px;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-top: 32px;
         }
 
         .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 18px;
-            color: #f02e65;
-            font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 18px;
+          color: #f02e65;
+          font-weight: 500;
         }
 
         .quote {
-            font-style: italic;
-            font-size: 20px;
-            color: #d4d4d8;
-            text-align: center;
-            max-width: 800px;
-            margin: 48px auto;
-            padding: 32px;
-            border-left: 4px solid #f02e65;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
+          font-style: italic;
+          font-size: 20px;
+          color: #d4d4d8;
+          text-align: center;
+          max-width: 800px;
+          margin: 48px auto;
+          padding: 32px;
+          border-left: 4px solid #f02e65;
+          background: rgba(255, 255, 255, 0.02);
+          border-radius: 8px;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
+          h1 {
+            font-size: 36px;
+          }
 
-            .subtitle {
-                font-size: 18px;
-            }
+          .subtitle {
+            font-size: 18px;
+          }
 
-            .hero-card {
-                padding: 32px 24px;
-            }
+          .hero-card {
+            padding: 32px 24px;
+          }
 
-            .hero-card h2 {
-                font-size: 24px;
-            }
+          .hero-card h2 {
+            font-size: 24px;
+          }
 
-            .hero-card p {
-                font-size: 16px;
-            }
+          .hero-card p {
+            font-size: 16px;
+          }
 
-            .card {
-                padding: 24px;
-            }
+          .card {
+            padding: 24px;
+          }
 
-            .grid {
-                grid-template-columns: 1fr;
-            }
+          .grid {
+            grid-template-columns: 1fr;
+          }
 
-            .cta-section h2 {
-                font-size: 28px;
-            }
+          .cta-section h2 {
+            font-size: 28px;
+          }
         }
-    </style>
-</head>
-<body>
-    <div class="container">
+      `}</style>
+
+      <div className="container">
         <header>
-            <div class="logo-section">
-                <div class="appwrite-logo">APPWRITE</div>
-            </div>
-            <h1>Developer Advocate Application</h1>
-            <p class="subtitle">Empowering developers through clarity, community, and code</p>
+          <div className="logo-section">
+            <div className="appwrite-logo">APPWRITE</div>
+          </div>
+          <h1>Developer Advocate Application</h1>
+          <p className="subtitle">Empowering developers through clarity, community, and code</p>
         </header>
 
-        <div class="hero-card">
-            <h2>Why Appwrite?</h2>
-            <p>I'm excited about joining Appwrite because its mission to reduce developer friction and empower creators resonates deeply with how I approach developer experience—by clarifying complexity and helping people feel confident, not confused. Appwrite's open-source, community-first platform is the kind of environment where I've thrived: building documentation from scratch, producing practical content (blogs, videos, tutorials), and nurturing early adopter communities to onboard and learn with product evolutions. I want to bring that combination of building with developers and educating through empathetic communication to Appwrite's global ecosystem, helping more developers unlock their ideas using a platform designed to eliminate barriers and accelerate innovation.</p>
+        <div className="hero-card">
+          <h2>Why Appwrite?</h2>
+          <p>
+            I'm excited about joining Appwrite because its mission to reduce developer friction and empower creators 
+            resonates deeply with how I approach developer experience—by clarifying complexity and helping people feel 
+            confident, not confused. Appwrite's open-source, community-first platform is the kind of environment where 
+            I've thrived: building documentation from scratch, producing practical content (blogs, videos, tutorials), 
+            and nurturing early adopter communities to onboard and learn with product evolutions. I want to bring that 
+            combination of building with developers and educating through empathetic communication to Appwrite's global 
+            ecosystem, helping more developers unlock their ideas using a platform designed to eliminate barriers and 
+            accelerate innovation.
+          </p>
         </div>
 
-        <h2 class="section-title">What I Bring to the Table</h2>
+        <h2 className="section-title">What I Bring to the Table</h2>
 
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">📚</div>
-                <h3>Documentation Excellence</h3>
-                <p>Built comprehensive documentation systems from the ground up, transforming complex technical concepts into clear, accessible guides that developers actually want to read and reference.</p>
-            </div>
+        <div className="grid">
+          <div className="card">
+            <div className="card-icon">📚</div>
+            <h3>Documentation Excellence</h3>
+            <p>
+              Built comprehensive documentation systems from the ground up, transforming complex technical concepts 
+              into clear, accessible guides that developers actually want to read and reference.
+            </p>
+          </div>
 
-            <div class="card">
-                <div class="card-icon">🎥</div>
-                <h3>Content Creation</h3>
-                <p>Produced engaging blogs, video tutorials, and technical content that breaks down barriers to entry and accelerates developer learning curves across multiple platforms.</p>
-            </div>
+          <div className="card">
+            <div className="card-icon">🎥</div>
+            <h3>Content Creation</h3>
+            <p>
+              Produced engaging blogs, video tutorials, and technical content that breaks down barriers to entry and 
+              accelerates developer learning curves across multiple platforms.
+            </p>
+          </div>
 
-            <div class="card">
-                <div class="card-icon">🌍</div>
-                <h3>Community Building</h3>
-                <p>Nurtured vibrant developer communities from early adoption stages, fostering environments where developers learn together and champion the platforms they love.</p>
-            </div>
+          <div className="card">
+            <div className="card-icon">🌍</div>
+            <h3>Community Building</h3>
+            <p>
+              Nurtured vibrant developer communities from early adoption stages, fostering environments where developers 
+              learn together and champion the platforms they love.
+            </p>
+          </div>
 
-            <div class="card">
-                <div class="card-icon">💡</div>
-                <h3>Developer Empathy</h3>
-                <p>Deep understanding of developer pain points and the ability to translate frustrations into actionable feedback that drives product and experience improvements.</p>
-            </div>
+          <div className="card">
+            <div className="card-icon">💡</div>
+            <h3>Developer Empathy</h3>
+            <p>
+              Deep understanding of developer pain points and the ability to translate frustrations into actionable 
+              feedback that drives product and experience improvements.
+            </p>
+          </div>
 
-            <div class="card">
-                <div class="card-icon">🚀</div>
-                <h3>Hands-On Building</h3>
-                <p>Not just talking about code—actively building with the tools I advocate for, creating sample projects and real-world implementations that showcase platform capabilities.</p>
-            </div>
+          <div className="card">
+            <div className="card-icon">🚀</div>
+            <h3>Hands-On Building</h3>
+            <p>
+              Not just talking about code—actively building with the tools I advocate for, creating sample projects 
+              and real-world implementations that showcase platform capabilities.
+            </p>
+          </div>
 
-            <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>Technical Communication</h3>
-                <p>Bridging the gap between engineering teams and developer communities, translating technical updates into compelling narratives that resonate with diverse audiences.</p>
-            </div>
+          <div className="card">
+            <div className="card-icon">🎯</div>
+            <h3>Technical Communication</h3>
+            <p>
+              Bridging the gap between engineering teams and developer communities, translating technical updates into 
+              compelling narratives that resonate with diverse audiences.
+            </p>
+          </div>
         </div>
 
-        <div class="quote">
-            "The best developer advocates don't just explain technology—they eliminate confusion, build confidence, and turn developers into champions of the platforms they love."
+        <div className="quote">
+          "The best developer advocates don't just explain technology—they eliminate confusion, build confidence, 
+          and turn developers into champions of the platforms they love."
         </div>
 
-        <div class="skills-section">
-            <h2 class="section-title">Core Competencies</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">Technical Writing</span>
-                <span class="skill-tag">Video Production</span>
-                <span class="skill-tag">Community Management</span>
-                <span class="skill-tag">Public Speaking</span>
-                <span class="skill-tag">Tutorial Creation</span>
-                <span class="skill-tag">Open Source</span>
-                <span class="skill-tag">Developer Experience</span>
-                <span class="skill-tag">Content Strategy</span>
-                <span class="skill-tag">API Documentation</span>
-                <span class="skill-tag">Workshop Facilitation</span>
-                <span class="skill-tag">Feedback Loop Design</span>
-                <span class="skill-tag">Platform Advocacy</span>
-            </div>
+        <div className="skills-section">
+          <h2 className="section-title">Core Competencies</h2>
+          <div className="skills-grid">
+            <span className="skill-tag">Technical Writing</span>
+            <span className="skill-tag">Video Production</span>
+            <span className="skill-tag">Community Management</span>
+            <span className="skill-tag">Public Speaking</span>
+            <span className="skill-tag">Tutorial Creation</span>
+            <span className="skill-tag">Open Source</span>
+            <span className="skill-tag">Developer Experience</span>
+            <span className="skill-tag">Content Strategy</span>
+            <span className="skill-tag">API Documentation</span>
+            <span className="skill-tag">Workshop Facilitation</span>
+            <span className="skill-tag">Feedback Loop Design</span>
+            <span className="skill-tag">Platform Advocacy</span>
+          </div>
         </div>
 
-        <div class="cta-section">
-            <h2>Let's Build Together</h2>
-            <p>I'm ready to help Appwrite's community grow, learn, and build amazing things. Let's eliminate barriers and accelerate innovation—one developer at a time.</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span>
-                    <span>rohinimurali@yahoo.com</span>
-                </div>
-                <div class="contact-item">
-                    <span>🔗</span>
-                    <span>https://www.linkedin.com/in/rohinimuralidharan</span>
-                </div>
-                <div class="contact-item">
-                    <span>🐙</span>
-                    <span>https://rohinimuralidharan.github.io/mynewprofile/overview.html</span>
-                </div>
+        <div className="cta-section">
+          <h2>Let's Build Together</h2>
+          <p>
+            I'm ready to help Appwrite's community grow, learn, and build amazing things. Let's eliminate barriers 
+            and accelerate innovation—one developer at a time.
+          </p>
+          <div className="contact-info">
+            <div className="contact-item">
+              <span>📧</span>
+              <span>your.email@example.com</span>
             </div>
+            <div className="contact-item">
+              <span>🔗</span>
+              <span>linkedin.com/in/yourprofile</span>
+            </div>
+            <div className="contact-item">
+              <span>🐙</span>
+              <span>github.com/yourusername</span>
+            </div>
+          </div>
         </div>
-    </div>
-</body>
-</html>
+      </div>
+    </>
+  );
+}
