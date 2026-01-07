@@ -359,15 +359,15 @@ export default function AppwriteAdvocatePage() {
           <div className="contact-info">
             <div className="contact-item">
               <span>📧</span>
-              <span>your.email@example.com</span>
+              <span>rohinimurali@yahoo.com</span>
             </div>
             <div className="contact-item">
               <span>🔗</span>
-              <span>linkedin.com/in/yourprofile</span>
+              <span>https://www.linkedin.com/in/rohinimuralidharan</span>
             </div>
             <div className="contact-item">
               <span>🐙</span>
-              <span>github.com/yourusername</span>
+              <span>https://rohinimuralidharan.github.io/mynewprofile/overview.html</span>
             </div>
           </div>
         </div>
