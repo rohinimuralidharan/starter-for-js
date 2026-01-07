@@ -1,250 +1,350 @@
+index.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="/images/appwrite.svg" />
-  <title>Appwrite + Javascript </title>
-  <link rel="stylesheet" href="./style/app.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-  <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:opsz,wght@14..32,100..900&family=Poppins:wght@300;400&display=swap"
-          rel="stylesheet"
-  />
-  <link rel="icon" type="image/svg+xml" href="/appwrite.svg" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Advocate Application - Appwrite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f0d1e 0%, #1a1533 50%, #0f0d1e 100%);
+            color: #e4e4e7;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .logo-section {
+            margin-bottom: 40px;
+        }
+
+        .appwrite-logo {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f02e65 0%, #fd366e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #a1a1aa;
+            font-weight: 300;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, rgba(240, 46, 101, 0.1) 0%, rgba(253, 54, 110, 0.05) 100%);
+            border: 1px solid rgba(240, 46, 101, 0.2);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(240, 46, 101, 0.15);
+        }
+
+        .hero-card h2 {
+            font-size: 32px;
+            color: #f02e65;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .hero-card p {
+            font-size: 18px;
+            color: #d4d4d8;
+            line-height: 1.8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(240, 46, 101, 0.5);
+            box-shadow: 0 12px 40px rgba(240, 46, 101, 0.2);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #f02e65 0%, #fd366e 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #a1a1aa;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .skills-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(240, 46, 101, 0.1);
+            border: 1px solid rgba(240, 46, 101, 0.3);
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-size: 16px;
+            color: #fda4af;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 32px;
+            background: linear-gradient(135deg, rgba(240, 46, 101, 0.15) 0%, rgba(253, 54, 110, 0.05) 100%);
+            border: 1px solid rgba(240, 46, 101, 0.3);
+            border-radius: 24px;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 40px;
+            margin-bottom: 24px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: #d4d4d8;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            color: #f02e65;
+            font-weight: 500;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 20px;
+            color: #d4d4d8;
+            text-align: center;
+            max-width: 800px;
+            margin: 48px auto;
+            padding: 32px;
+            border-left: 4px solid #f02e65;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .hero-card {
+                padding: 32px 24px;
+            }
+
+            .hero-card h2 {
+                font-size: 24px;
+            }
+
+            .hero-card p {
+                font-size: 16px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-[#FAFAFB] font-[Inter] text-sm text-[#56565C]">
-<main class="checker-background flex flex-col items-center p-5" id="main">
-  <div class="mt-25 flex w-full max-w-[40em] items-center justify-center lg:mt-34">
-    <div class="rounded-[25%] border border-[#19191C0A] bg-[#F9F9FA] p-3 shadow-[0px_9.36px_9.36px_0px_hsla(0,0%,0%,0.04)]">
-      <div class="rounded-[25%] border border-[#FAFAFB] bg-white p-5 shadow-[0px_2px_12px_0px_hsla(0,0%,0%,0.03)] lg:p-9">
-        <img alt="Javascript logo" src="./images/javascript.svg" class="h-14 w-14" width="56" height="56">
-      </div>
-    </div>
-    <div class="flex w-38 items-center transition-opacity duration-2500 opacity-0" id="success-icon">
-      <div class="to-[rgba(253, 54, 110, 0.15)] h-[1px] flex-1 bg-gradient-to-l from-[#f02e65]"></div>
-      <div class="icon-check flex h-5 w-5 items-center justify-center rounded-full border border-[#FD366E52] bg-[#FD366E14] text-[#FD366E]"></div>
-      <div class="to-[rgba(253, 54, 110, 0.15)] h-[1px] flex-1 bg-gradient-to-r from-[#f02e65]"></div>
-    </div>
-    <div class="rounded-[25%] border border-[#19191C0A] bg-[#F9F9FA] p-3 shadow-[0px_9.36px_9.36px_0px_hsla(0,0%,0%,0.04)]">
-      <div class="rounded-[25%] border border-[#FAFAFB] bg-white p-5 shadow-[0px_2px_12px_0px_hsla(0,0%,0%,0.03)] lg:p-9">
-        <img alt="Appwrite logo" src="./images/appwrite.svg" class="h-14 w-14" width="56" height="56">
-      </div>
-    </div>
-  </div>
-
-  <section class="mt-12 flex h-52 flex-col items-center" id="status-section">
-    <div class="flex flex-row gap-4" id="loading-spinner" style="display: none;">
-      <div role="status">
-        <svg aria-hidden="true" class="h-5 w-5 animate-spin fill-[#FD366E] text-gray-200 dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-          <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
-        </svg>
-        <span class="sr-only">Loading...</span>
-      </div>
-      <span>Waiting for connection...</span>
-    </div>
-    <h1 class="font-[Poppins] text-2xl font-light text-[#2D2D31]" id="status-message">Check connection</h1>
-    <p class="mt-2 mb-8" id="status-description">Send a ping to verify the connection</p>
-    <button class="cursor-pointer rounded-md bg-[#FD366E] px-2.5 py-1.5" id="ping-button">
-      <span class="text-white">Send a ping</span>
-    </button>
-  </section>
-
-  <div class="grid grid-rows-3 gap-7 lg:grid-cols-3 lg:grid-rows-none">
-    <div class="flex h-full w-72 flex-col gap-2 rounded-md border border-[#EDEDF0] bg-white p-4">
-      <h2 class="text-xl font-light text-[#2D2D31]">Edit your app</h2>
-      <p>Edit <code class="rounded-sm bg-[#EDEDF0] p-1">app/page.js</code> to get started with building your app.</p>
-    </div>
-    <a href="https://cloud.appwrite.io" target="_blank" rel="noopener noreferrer">
-      <div class="flex h-full w-72 flex-col gap-2 rounded-md border border-[#EDEDF0] bg-white p-4">
-        <div class="flex flex-row items-center justify-between">
-          <h2 class="text-xl font-light text-[#2D2D31]">Go to console</h2>
-          <span class="icon-arrow-right text-[#D8D8DB]"></span>
-        </div>
-        <p>Navigate to the console to control and oversee the Appwrite services.</p>
-      </div>
-    </a>
-    <a href="https://appwrite.io/docs" target="_blank" rel="noopener noreferrer">
-      <div class="flex h-full w-72 flex-col gap-2 rounded-md border border-[#EDEDF0] bg-white p-4">
-        <div class="flex flex-row items-center justify-between">
-          <h2 class="text-xl font-light text-[#2D2D31]">Explore docs</h2>
-          <span class="icon-arrow-right text-[#D8D8DB]"></span>
-        </div>
-        <p>Discover the full power of Appwrite by diving into our documentation.</p>
-      </div>
-    </a>
-  </div>
-
-  <aside class="fixed bottom-0 flex w-full cursor-pointer border-t border-[#EDEDF0] bg-white">
-    <details id="logs-details" class="w-full">
-      <summary class="flex w-full flex-row justify-between p-4 marker:content-none">
-        <div class="flex gap-2">
-          <span class="font-semibold">Logs</span>
-          <div class="flex items-center rounded-md bg-[#E6E6E6] px-2" id="log-count" style="display: none;">
-            <span class="font-semibold" id="log-count-value"></span>
-          </div>
-        </div>
-        <div class="icon">
-          <span class="icon-cheveron-down" aria-hidden="true"></span>
-        </div>
-      </summary>
-      <div class="flex w-full flex-col lg:flex-row">
-        <div class="flex flex-col border-r border-[#EDEDF0]">
-          <div class="border-y border-[#EDEDF0] bg-[#FAFAFB] px-4 py-2 text-[#97979B]">Project</div>
-          <div class="grid grid-cols-2 gap-4 p-4">
-            <div class="flex flex-col">
-              <span class="text-[#97979B]">Endpoint</span>
-              <span class="truncate" id="project-endpoint"></span>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="appwrite-logo">APPWRITE</div>
             </div>
-            <div class="flex flex-col">
-              <span class="text-[#97979B]">Project-ID</span>
-              <span class="truncate" id="project-id"></span>
-            </div>
-            <div class="flex flex-col">
-              <span class="text-[#97979B]">Project name</span>
-              <span class="truncate" id="project-name"></span>
-            </div>
-          </div>
+            <h1>Developer Advocate Application</h1>
+            <p class="subtitle">Empowering developers through clarity, community, and code</p>
+        </header>
+
+        <div class="hero-card">
+            <h2>Why Appwrite?</h2>
+            <p>I'm excited about joining Appwrite because its mission to reduce developer friction and empower creators resonates deeply with how I approach developer experience—by clarifying complexity and helping people feel confident, not confused. Appwrite's open-source, community-first platform is the kind of environment where I've thrived: building documentation from scratch, producing practical content (blogs, videos, tutorials), and nurturing early adopter communities to onboard and learn with product evolutions. I want to bring that combination of building with developers and educating through empathetic communication to Appwrite's global ecosystem, helping more developers unlock their ideas using a platform designed to eliminate barriers and accelerate innovation.</p>
         </div>
-        <div class="flex-grow">
-          <table class="w-full">
-            <thead>
-            <tr class="border-y border-[#EDEDF0] bg-[#FAFAFB] text-[#97979B]">
-              <td class="w-52 py-2 pl-4">Date</td>
-              <td>Status</td>
-              <td>Method</td>
-              <td class="hidden lg:table-cell">Path</td>
-              <td class="hidden lg:table-cell">Response</td>
-            </tr>
-            </thead>
-            <tbody id="log-table">
-            <tr>
-              <td class="py-2 pl-4 font-[Fira_Code]">There are no logs to show</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-  </aside>
-</main>
 
-<script type="module">
-  import { client } from "./lib/appwrite.js";
-  import { AppwriteException } from "appwrite";
-  import "@appwrite.io/pink-icons";
+        <h2 class="section-title">What I Bring to the Table</h2>
 
-  document.addEventListener("DOMContentLoaded", () => {
-    let logs = [];
-    let status = "idle";
-    let showLogs = false;
-
-    const detailsRef = document.getElementById("logs-details");
-    const main = document.getElementById("main");
-    const statusMessage = document.getElementById("status-message");
-    const statusDescription = document.getElementById("status-description");
-    const pingButton = document.getElementById("ping-button");
-    const loadingSpinner = document.getElementById("loading-spinner");
-    const successIcon = document.getElementById("success-icon");
-    const logCount = document.getElementById("log-count");
-    const logCountValue = document.getElementById("log-count-value");
-    const logTable = document.getElementById("log-table");
-
-    const updateHeight = () => {
-      if (detailsRef) {
-        const height = detailsRef.clientHeight;
-        main.style.marginBottom = `${height}px`;
-      }
-    };
-
-    window.addEventListener("resize", updateHeight);
-
-    detailsRef.addEventListener("toggle", updateHeight);
-
-    async function sendPing() {
-      if (status === "loading") return;
-      status = "loading";
-      statusMessage.textContent = "";
-      statusDescription.textContent = "";
-      pingButton.style.display = "none";
-      loadingSpinner.style.display = "flex";
-
-      try {
-        const result = await client.ping();
-        const log = {
-          date: new Date(),
-          method: "GET",
-          path: "/v1/ping",
-          status: 200,
-          response: JSON.stringify(result),
-        };
-        logs.unshift(log);
-        status = "success";
-        statusMessage.textContent = "Congratulations!";
-        statusDescription.textContent = "You connected your app successfully.";
-
-        updateLogs();
-      } catch (err) {
-        const log = {
-          date: new Date(),
-          method: "GET",
-          path: "/v1/ping",
-          status: err instanceof AppwriteException ? err.code : 500,
-          response: err instanceof AppwriteException ? err.message : "Something went wrong",
-        };
-        logs.unshift(log);
-        status = "error";
-        statusMessage.textContent = "Check connection";
-        statusDescription.textContent = "Send a ping to verify the connection";
-        updateLogs();
-      }
-      pingButton.style.display = "block";
-      loadingSpinner.style.display = "none";
-      successIcon.style.opacity = status === "success" ? "100" : "0";
-      showLogs = true;
-    }
-
-    const updateLogs = () => {
-      logTable.innerHTML = "";
-      if (logs.length > 0) {
-        logCount.style.display = "flex";
-        logCountValue.textContent = logs.length;
-        logs.forEach((log) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-          <td class="py-2 pl-4 font-[Fira_Code]">${log.date.toLocaleString("en-US", {
-            month: "short",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          })}</td>
-          <td>
-            <div class="w-fit rounded-sm ${log.status > 400 ? "bg-[#FF453A3D] text-[#B31212]" : "bg-[#10B9813D] text-[#0A714F]"} px-1">
-              ${log.status}
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Documentation Excellence</h3>
+                <p>Built comprehensive documentation systems from the ground up, transforming complex technical concepts into clear, accessible guides that developers actually want to read and reference.</p>
             </div>
-          </td>
-          <td>${log.method}</td>
-          <td class="hidden lg:table-cell">${log.path}</td>
-          <td class="hidden font-[Fira_Code] lg:table-cell">${log.response}</td>
-        `;
-          logTable.appendChild(row);
-        });
-      } else {
-        logCount.style.display = "none";
-        const row = document.createElement("tr");
-        row.innerHTML = `<td class="py-2 pl-4 font-[Fira_Code]">There are no logs to show</td>`;
-        logTable.appendChild(row);
-      }
-    };
 
-    pingButton.addEventListener("click", sendPing);
-    document.getElementById('project-endpoint').textContent = import.meta.env.VITE_APPWRITE_ENDPOINT;
-    document.getElementById('project-id').textContent = import.meta.env.VITE_APPWRITE_PROJECT_ID;
-    document.getElementById('project-name').textContent = import.meta.env.VITE_APPWRITE_PROJECT_NAME;
-    updateHeight();
-  });
-</script>
+            <div class="card">
+                <div class="card-icon">🎥</div>
+                <h3>Content Creation</h3>
+                <p>Produced engaging blogs, video tutorials, and technical content that breaks down barriers to entry and accelerates developer learning curves across multiple platforms.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌍</div>
+                <h3>Community Building</h3>
+                <p>Nurtured vibrant developer communities from early adoption stages, fostering environments where developers learn together and champion the platforms they love.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>Developer Empathy</h3>
+                <p>Deep understanding of developer pain points and the ability to translate frustrations into actionable feedback that drives product and experience improvements.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Hands-On Building</h3>
+                <p>Not just talking about code—actively building with the tools I advocate for, creating sample projects and real-world implementations that showcase platform capabilities.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Technical Communication</h3>
+                <p>Bridging the gap between engineering teams and developer communities, translating technical updates into compelling narratives that resonate with diverse audiences.</p>
+            </div>
+        </div>
+
+        <div class="quote">
+            "The best developer advocates don't just explain technology—they eliminate confusion, build confidence, and turn developers into champions of the platforms they love."
+        </div>
+
+        <div class="skills-section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Technical Writing</span>
+                <span class="skill-tag">Video Production</span>
+                <span class="skill-tag">Community Management</span>
+                <span class="skill-tag">Public Speaking</span>
+                <span class="skill-tag">Tutorial Creation</span>
+                <span class="skill-tag">Open Source</span>
+                <span class="skill-tag">Developer Experience</span>
+                <span class="skill-tag">Content Strategy</span>
+                <span class="skill-tag">API Documentation</span>
+                <span class="skill-tag">Workshop Facilitation</span>
+                <span class="skill-tag">Feedback Loop Design</span>
+                <span class="skill-tag">Platform Advocacy</span>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Let's Build Together</h2>
+            <p>I'm ready to help Appwrite's community grow, learn, and build amazing things. Let's eliminate barriers and accelerate innovation—one developer at a time.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>rohinimurali@yahoo.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>https://www.linkedin.com/in/rohinimuralidharan</span>
+                </div>
+                <div class="contact-item">
+                    <span>🐙</span>
+                    <span>https://rohinimuralidharan.github.io/mynewprofile/overview.html</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
